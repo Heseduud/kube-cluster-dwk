@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'project/project-backend/'
-      - '.github/workflows/gitops-app.yml'
+      - '.github/workflows/main.yml'
 
 jobs:
   build:
