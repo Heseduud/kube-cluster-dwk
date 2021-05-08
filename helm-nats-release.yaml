@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: ./helmcharts
+      chart: nats
       sourceRef:
         kind: HelmRepository
         name: nats
