@@ -48,7 +48,7 @@ jobs:
     # Commit and push
     - uses: EndBug/add-and-commit@v5
       with:
-        add: '4-gitops/manifests/kustomization.yaml'
+        add: 'project/project-backend/manifests/kustomization.yaml'
         message: New version release for project gitops backend ${{ github.sha }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
