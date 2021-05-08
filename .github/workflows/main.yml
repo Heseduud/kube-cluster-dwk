@@ -36,8 +36,7 @@ jobs:
     - name: Set up Kustomize
       working-directory: project/project-backend/manifests
       run: |-
-        curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
-        ls
+        curl -sfLo kustomize "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"
         chmod u+x ./kustomize
 
     # Update yamls
