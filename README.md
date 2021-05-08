@@ -1,6 +1,6 @@
 # kube-cluster-dwk
 
-Decided to do the GitOps execrises in an individual repo to avoid clutter / general shitstorm mayhem.
+Decided to do the GitOps exercises in an individual repo to avoid clutter / general shitstorm mayhem.
 Atleast it works. 
 
 Had to create the cluster with:
