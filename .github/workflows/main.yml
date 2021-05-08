@@ -37,12 +37,12 @@ jobs:
       run: |-
         curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
         chmod u+x ./kustomize
-        cp kustomize project/project-backend/manifests
+        cp kustomize project/manifests
 
     # Update yamls
     - name: Update yamls
       run: |-
-        cd project/project-backend/manifests
+        cd project/manifests
         ./kustomize edit set image IMAGE_PLACEHOLDER_BACKEND=heseduud/projectbackend:${{ github.sha }}
 
     # Commit and push
