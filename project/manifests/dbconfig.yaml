@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: project-dbconfig
+  namespace: project
+data:
+  postgres_db: postgres
+  postgres_user: postgres
+  postgres_hostaddr: postgres-svc
+  project_db_port: "5432"
