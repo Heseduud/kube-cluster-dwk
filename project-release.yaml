@@ -7,7 +7,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: project-repo
-  interval: 10m
+  interval: 1m
   path: ./project/manifests
   prune: true
   validation: client
