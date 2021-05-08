@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: broadcaster
-          image: heseduud/broadcaster:4.06v16
+          image: IMAGE_PLACEHOLDER_BROADCASTER
           env:
             - name: API_KEY
               valueFrom:

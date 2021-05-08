@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: project-frontend
-          image: heseduud/projectfrontend:4.05
+          image: IMAGE_PLACEHOLDER_FRONTEND
           readinessProbe:
             initialDelaySeconds: 10
             periodSeconds: 5
