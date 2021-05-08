@@ -37,7 +37,9 @@ jobs:
       working-directory: project/project-frontend/manifests
       run: |-
         curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
+        ls
         chmod u+x ./kustomize
+        curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
     # Update yamls
     - name: Update yamls
       working-directory: project/project-frontend/manifests
