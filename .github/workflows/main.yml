@@ -41,8 +41,8 @@ jobs:
 
     # Update yamls
     - name: Update yamls
-      working-directory: project/project-backend/manifests
       run: |-
+        cd project/project-backend/manifests
         ./kustomize edit set image IMAGE_PLACEHOLDER_BACKEND=heseduud/projectbackend:${{ github.sha }}
 
     # Commit and push
