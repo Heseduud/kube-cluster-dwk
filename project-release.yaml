@@ -1,0 +1,13 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: example-gitops-app
+  namespace: flux-system
+spec:
+  sourceRef:
+    kind: GitRepository
+    name: project-repo
+  interval: 10m
+  path: ./project/manifests
+  prune: true
+  validation: client

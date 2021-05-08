@@ -1,0 +1,15 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: wikipedia-cronjob
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: wikipedia-cronjob
+            image: heseduud/wikipedia-job:v3
+            imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure

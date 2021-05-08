@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: project
+  name: project-backend-dep
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: project-backend
+  template:
+    metadata:
+      labels:
+        app: project-backend
+    spec:
+      volumes:
+        - name: project-pvolume
+          persistentVolumeClaim:
+            claimName: project-claim
+      containers:
+        - name: project-backend
+          image: heseduud/projectbackend:4.06v21
+          volumeMounts:
+            - name: project-pvolume
+              mountPath: /usr/src/app/files
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            httpGet:
+              path: /healthz
+              port: 5000
+          livenessProbe:
+            initialDelaySeconds: 20
+            periodSeconds: 5
+            httpGet:
+              path: /healthz
+              port: 5000
+          env:
+            - name: PGHOST
+              valueFrom:
+                configMapKeyRef:
+                  name: project-dbconfig
+                  key: postgres_hostaddr
+            - name: PGUSER
+              valueFrom:
+                configMapKeyRef:
+                  name: project-dbconfig
+                  key: postgres_user
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: project-secret
+                  key: POSTGRES_PASSWORD
+            - name: PGDATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: project-dbconfig
+                  key: postgres_db
+            - name: PGPORT
+              valueFrom:
+                configMapKeyRef:
+                  name: project-dbconfig
+                  key: project_db_port
+            - name: NATS_URL
+              value: nats://my-nats.default:4222

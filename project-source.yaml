@@ -1,10 +1,10 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: example-repo
+  name: project-repo
   namespace: flux-system
 spec:
-  interval: 10m
-  url: https://github.com/kubernetes-hy/material-example
+  interval: 1m
+  url: https://github.com/Heseduud/kube-cluster-dwk
   ref:
-    branch: master
+    branch: main

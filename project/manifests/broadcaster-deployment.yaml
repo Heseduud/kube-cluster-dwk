@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: project
+  name: broadcaster-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: broadcaster
+  template:
+    metadata:
+      labels:
+        app: broadcaster
+    spec:
+      containers:
+        - name: broadcaster
+          image: heseduud/broadcaster:4.06v16
+          env:
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: telegram-apikey
+                  key: API_KEY
+            - name: NATS_URL
+              value: nats://my-nats.default:4222

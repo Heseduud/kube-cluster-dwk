@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: project
+  name: project-ing
+  annotations:
+    ingress.kubernetes.io/enable-cors: "true"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: projectfrontend-svc
+          servicePort: 3214
+      - path: /api/
+        backend:
+          serviceName: projectbackend-svc
+          servicePort: 5000
