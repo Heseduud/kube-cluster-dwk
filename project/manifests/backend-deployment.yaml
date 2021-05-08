@@ -62,4 +62,4 @@ spec:
                   name: project-dbconfig
                   key: project_db_port
             - name: NATS_URL
-              value: nats://my-nats.default:4222
+              value: nats://nats.default:4222
