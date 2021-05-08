@@ -1,4 +1,4 @@
-name: Release backend
+name: Release frontend
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         tags: ${{ github.sha }}
-        path: project/project-backend
+        path: project/project-frontend
 
   deploy:
     name: Deploy
