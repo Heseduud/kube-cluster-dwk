@@ -18,9 +18,9 @@ images:
 - name: IMAGE_PLACEHOLDER_BACKEND
   newName: heseduud/projectbackend
   newTag: fdafd7088d04892815ed037cf30ca4f61c7af2f7
-- name: IMAGE_PLACEHOLDER_FRONTEND
-  newName: heseduud/projectfrontend
-  newTag: fdafd7088d04892815ed037cf30ca4f61c7af2f7
 - name: IMAGE_PLACEHOLDER_BROADCASTER
   newName: heseduud/broadcaster
   newTag: fdafd7088d04892815ed037cf30ca4f61c7af2f7
+- name: IMAGE_PLACEHOLDER_FRONTEND
+  newName: heseduud/projectfrontend
+  newTag: 01f1a0aa02dd41a89572f13ad8fc871d4652abaa
