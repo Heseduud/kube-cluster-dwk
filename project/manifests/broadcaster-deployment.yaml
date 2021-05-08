@@ -23,4 +23,4 @@ spec:
                   name: telegram-apikey
                   key: API_KEY
             - name: NATS_URL
-              value: nats://my-nats.default:4222
+              value: nats://nats.default:4222
