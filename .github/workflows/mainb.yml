@@ -34,21 +34,18 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Set up Kustomize
-      working-directory: project/project-frontend/manifests
       run: |-
         curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
-        ls
         chmod u+x ./kustomize
-        curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
+        cp kustomize project/manifests
     # Update yamls
     - name: Update yamls
-      working-directory: project/project-frontend/manifests
       run: |-
-        ./kustomize edit set image IMAGE_PLACEHOLDER_BACKEND=heseduud/projectfrontend:${{ github.sha }}
+        cd project/manifests
+        ./kustomize edit set image IMAGE_PLACEHOLDER_FRONTEND=heseduud/projectfrontend:${{ github.sha }}
     # Commit and push
     - uses: EndBug/add-and-commit@v5
       with:
-        add: 'project/project-frontend/manifests/kustomization.yaml'
-        message: New version release for project gitops backend ${{ github.sha }}
+        message: New version release for project gitops frontend ${{ github.sha }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
